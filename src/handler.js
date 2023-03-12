@@ -44,11 +44,11 @@ const addBookHandler = (request, h) => {
       return response;
     }
 
-    // Jika readPage lebih besar dari pageCount. Status failed.
+    // Jika readPage > pageCount. Status failed.
     if (readPage > pageCount) {
       const response = h.response({
         status: 'fail',
-        message: 'failed menambahkan buku. readPage tidak boleh lebih besar dari pageCount',
+        message: 'failed menambahkan buku. halaman yang dibaca lebih besar dari halaman yang ada',
       });
       response.code(400);
       return response;
