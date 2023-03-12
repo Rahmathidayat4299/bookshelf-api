@@ -1,4 +1,6 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable quotes */
+/* eslint-disable linebreak-style */
 /* eslint-disable arrow-parens */
 /* eslint-disable comma-dangle */
 /* eslint-disable linebreak-style */
@@ -34,21 +36,21 @@ const addBookHandler = (request, h) => {
             reading,
         } = request.payload;
 
-    // Jika nama tidak ada isinya. Status failed.
+    // Jika nama tidak ada isinya. Status gagal.
     if (!name) {
       const response = h.response({
-        status: 'fail',
-        message: 'failed menambahkan buku. Mohon isi nama buku',
+        status: "fail",
+        message: "Gagal menambahkan buku. Mohon isi nama buku"
       });
       response.code(400);
       return response;
     }
 
-    // Jika readPage > pageCount. Status failed.
+    // Jika readPage > pageCount. Status gagal.
     if (readPage > pageCount) {
       const response = h.response({
-        status: 'fail',
-        message: 'failed menambahkan buku. halaman yang dibaca lebih besar dari halaman yang ada',
+        status: "fail",
+        message: "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount"
       });
       response.code(400);
       return response;
@@ -91,10 +93,10 @@ const addBookHandler = (request, h) => {
       return response;
     }
 
-    // jika failed karena alasan umum
+    // jika gagal karena alasan umum
     const response = h.response({
       status: 'error',
-      message: 'Buku failed ditambahkan',
+      message: 'Buku gagal ditambahkan',
     });
     response.code(500);
     return response;
@@ -160,7 +162,7 @@ const addBookHandler = (request, h) => {
         return response;
     }
 
-    // jika failed mengambil data dengan id
+    // jika gagal mengambil data dengan id
     const response = h.response({
         status: 'fail',
         message: 'Buku tidak ditemukan',
@@ -186,7 +188,7 @@ const editBookByIdHandler = (request, h) => {
   if (!name) {
       const response = h.response({
         status: 'fail',
-        message: 'failed memperbarui buku. Mohon isi nama buku',
+        message: 'Gagal memperbarui buku. Mohon isi nama buku',
       });
       response.code(400);
       return response;
@@ -195,7 +197,7 @@ const editBookByIdHandler = (request, h) => {
   if (readPage > pageCount) {
     const response = h.response({
       status: 'fail',
-      message: 'failed memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
+      message: 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
     });
     response.code(400);
     return response;
@@ -224,7 +226,7 @@ const editBookByIdHandler = (request, h) => {
 
     const response = h.response({
       status: 'fail',
-      message: 'failed memperbarui buku. Id tidak ditemukan',
+      message: 'Gagal memperbarui buku. Id tidak ditemukan',
     });
     response.code(404);
     return response;
@@ -248,7 +250,7 @@ const deleteBookByIdHandler = (request, h) => {
 
   const response = h.response({
     status: 'fail',
-    message: 'Buku failed dihapus. Id tidak ditemukan',
+    message: 'Buku gagal dihapus. Id tidak ditemukan',
   });
   response.code(404);
   return response;
